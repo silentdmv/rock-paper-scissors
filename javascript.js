@@ -1,5 +1,3 @@
-const playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
-
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
     const choice = choices[Math.floor(Math.random() * choices.length)];
@@ -51,7 +49,14 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const computerSelection = getComputerChoice();
-console.log(playerSelection);
-console.log(computerSelection);
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    const playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
+    const computerSelection = getComputerChoice();
+    return playRound(playerSelection, computerSelection);
+}
+
+let gameRound = 0;
+while (gameRound < 5) {
+    console.log(game());
+    gameRound++
+}
