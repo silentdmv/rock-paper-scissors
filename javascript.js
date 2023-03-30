@@ -1,6 +1,10 @@
+const playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
+
 function getComputerChoice() {
-    let choice = ['Rock', 'Paper', 'Scissors']
-    return Math.floor(Math.random() * choice.length)
+    const choices = ['rock', 'paper', 'scissors'];
+    const computerSelection = choices[Math.floor(Math.random() * choices.length)];
+    return computerSelection;
 }
 
-console.log(getComputerChoice())
+console.log(getComputerChoice());
+console.log(playerSelection);
