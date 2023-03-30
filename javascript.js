@@ -1,3 +1,6 @@
+let playerScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
     const choice = choices[Math.floor(Math.random() * choices.length)];
@@ -11,10 +14,12 @@ function playRound(playerSelection, computerSelection) {
         }
 
         else if (computerSelection == 'paper') {
+            ++computerScore;
             return "You lose! Paper beats Rock!"
         }
 
         else {
+            ++playerScore;
             return "You win! Rock beats Scissors!";
         }
 
@@ -26,10 +31,12 @@ function playRound(playerSelection, computerSelection) {
         }
 
         else if (computerSelection == 'scissors') {
+            ++computerScore;
             return "You lose! Scissors beat Paper!";
         }
 
         else {
+            ++playerScore;
             return "You win! Paper beats Rock!";
         }
     }
@@ -40,10 +47,12 @@ function playRound(playerSelection, computerSelection) {
         }
 
         else if (computerSelection == 'rock') {
+            ++computerScore;
             return "You lose! Rock beats Scissors!";
         }
 
         else {
+            ++playerScore;
             return "You win! Scissors beat Paper!";
         }
     }
@@ -55,8 +64,26 @@ function game() {
     return playRound(playerSelection, computerSelection);
 }
 
+function score(playerScore, computerScore) {
+    if (playerScore > computerScore) {
+        return "Player wins!";
+    }
+
+    else if (playerScore < computerScore) {
+        return "Computer wins!";
+    }
+
+    else {
+        return "It's a draw.";
+    }
+
+
+}
+
 let gameRound = 0;
 while (gameRound < 5) {
     console.log(game());
     gameRound++
 }
+
+console.log(`${score(playerScore, computerScore)} The final score is ${playerScore}:${computerScore}.`);
